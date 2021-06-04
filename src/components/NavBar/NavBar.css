@@ -1,0 +1,21 @@
+.titulo{
+    font-family: 'Kaushan Script', cursive;
+    font-weight: bolder;
+}
+.navBar{
+    background-color: rgb(255, 152, 138);
+}
+.btnCarrito{
+    color: white;
+    font-size: 200%;
+    border: rgb(255, 43, 78);
+    transition: transform 1.5s; /* Animation */
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+}
+.btnCarrito:hover{
+    transform: scale(1.2);
+}
+
+
