@@ -1,0 +1,7 @@
+.botonCarrito{
+    cursor: pointer;
+    transition-duration: 0.20s;
+}
+.botonCarrito:hover{
+    transform: scale(1.2);
+}
