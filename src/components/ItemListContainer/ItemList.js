@@ -1,12 +1,24 @@
 import React from 'react';
-import './ItemList.css'
 
-class ItemListContainer extends React.Component{
-    render(){
-        return <div>
-        <p>Productos por comprar</p>
+import {Item1} from './Items/item'
+
+const ItemContainerStyle = {
+    backgroundColor: 'AliceBlue',
+    color: 'black',
+    padding:'1%',
+    border: 'white 1px solid',
+    boxShadow: 'LightSteelBlue 2px 5px 5px',
+    textTransform: 'Uppercase',
+    fontWeight: 'bold',
+    margin:'2%',
+    textAlign: 'center',
+    
+}
+const ItemListContainer = () =>{
+        return <div style ={ItemContainerStyle}>
+        <Item1  catalogo="Proximamente: Catálogo de productos" />
     </div>
 }
-}
+
 
 export default ItemListContainer;

@@ -1,6 +1,6 @@
 
 import Button from '@material-ui/core/Button';
-import {BarraNav} from './components/NavBar/NavBar';
+import {NavBar} from './components/NavBar/NavBar';
 import {Card} from './components/cards/Card';
 import {BtnCard} from './components/cards/boton/Boton'
 import ItemListContainer from './components/ItemListContainer/ItemList'
@@ -10,7 +10,7 @@ import ItemListContainer from './components/ItemListContainer/ItemList'
 function App() {
   return (
     <div>
-      <BarraNav></BarraNav>
+      <NavBar/>
       <ItemListContainer/>
       <Card titulo ="Producto" subtitulo ="Marca">
         <BtnCard/>
