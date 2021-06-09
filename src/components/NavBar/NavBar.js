@@ -3,7 +3,7 @@ import * as ReactBoostrap from "react-bootstrap"
 import CartWidget from './cartWidget/cartWidget'
 import './NavBar.css'
 
-export const BarraNav = () =>{
+export const NavBar = () =>{
       return (<ReactBoostrap.Navbar collapseOnSelect expand="lg"  variant="dark" className="navBar">
               <ReactBoostrap.Navbar.Brand href="#home" className="titulo">
                   Wings Cosmetics
