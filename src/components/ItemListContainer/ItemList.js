@@ -1,6 +1,7 @@
 import React from 'react';
 
 import {Item1} from './Items/item'
+import { ItemCount } from '../cards/boton/itemCount';
 
 const ItemContainerStyle = {
     backgroundColor: 'AliceBlue',
@@ -17,6 +18,8 @@ const ItemContainerStyle = {
 const ItemListContainer = () =>{
         return <div style ={ItemContainerStyle}>
         <Item1  catalogo="Proximamente: Catálogo de productos" />
+        <ItemCount/>
+
     </div>
 }
 
