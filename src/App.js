@@ -1,7 +1,7 @@
 
-import Button from '@material-ui/core/Button';
+
 import {NavBar} from './components/NavBar/NavBar';
-import ItemListContainer from './components/ItemListContainer/ItemList'
+import {ItemListContainer} from './components/ItemListContainer/ItemListContainer'
 
 
 
@@ -10,7 +10,7 @@ function App() {
     <div>
       <NavBar/>
       <ItemListContainer/>
-      <Button>Boton</Button>
+      
     </div>
       
     
