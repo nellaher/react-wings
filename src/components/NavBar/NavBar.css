@@ -4,6 +4,7 @@
 }
 .navBar{
     background-color: rgb(255, 152, 138);
+    width: 100%;
 }
 .btnCarrito{
     color: white;
