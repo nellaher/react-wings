@@ -6,7 +6,7 @@ import './NavBar.css'
 export const NavBar = () =>{
       return (<ReactBoostrap.Navbar collapseOnSelect expand="lg"  variant="dark" className="navBar">
               <ReactBoostrap.Navbar.Brand href="#home" className="titulo">
-                  Wings Cosmetics
+                  Wings Style
               </ReactBoostrap.Navbar.Brand>
     
       <ReactBoostrap.Navbar.Toggle aria-controls="responsive-navbar-nav" />
