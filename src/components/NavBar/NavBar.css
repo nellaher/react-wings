@@ -1,6 +1,28 @@
 .titulo{
     font-family: 'Kaushan Script', cursive;
     font-weight: bolder;
+    color: white;
+    letter-spacing: 2px;
+    text-decoration: none;
+    padding: 0% 1.5%;
+    font-size: 150%;
+    transition: transform 0.5s;
+}
+.titulo:hover{
+    color: white;
+    letter-spacing: 2px;
+    text-decoration: none;
+    transform: scale(1.2);
+}
+
+.categorias{
+    color: white;
+    margin-top:3.2%;
+    padding: 1%;
+}
+.categorias:hover{
+    text-decoration: none;
+
 }
 .navBar{
     background-color: rgb(255, 152, 138);
@@ -16,7 +38,7 @@
   margin: 0 auto;
 }
 .btnCarrito:hover{
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
 

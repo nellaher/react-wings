@@ -13,7 +13,7 @@ const ItemStyle = {
     boxShadow: 'LightSteelBlue 2px 5px 5px',
     margin:'3%',
     textAlign: 'center',
-    width: '16rem',
+    width: '30rem',
     height:'100%'
 
 
@@ -27,27 +27,33 @@ const styleItemList = {
     margin:'3%'
 };
 
+const styleImg = {
+    height: '25rem',
+    padding: '5px',
+    
+}
+
 export const ItemDetail = props=> {
-    const {productoDetalle} = props;
+    const {detallePrenda} = props;
     return <>
-    {productoDetalle.length === 0 ? (
+    {detallePrenda.length === 0 ? (
        <div className="d-flex justify-content-center" style={styleItemList}><Spinner animation="border" variant="secondary"/></div>
        ) : (
        
-              <div>
-        <Card style={ItemStyle}>
-       <h5>{productoDetalle.title}</h5>
-       <img src= {productoDetalle.picture.img}  alt= {productoDetalle.picture.alt}></img>
-       <Card.Text> ${productoDetalle.price}</Card.Text>
+        <section>
+        <div style={ItemStyle}>
+       <h5>{detallePrenda.title}</h5>
+       <img style={styleImg} src= {detallePrenda.picture.img}  alt= {detallePrenda.picture.alt}></img>
+       <Card.Text> ${detallePrenda.price}</Card.Text>
        <div>
-           <p>Descripción: {productoDetalle.description}</p>
-           <p>Colores: {productoDetalle.colores.color1}, {productoDetalle.colores.color2}</p>
-           <p>Talles: {productoDetalle.talles.T1}-{productoDetalle.talles.T2}-{productoDetalle.talles.T3}</p>
+           <p>Descripción: {detallePrenda.description}</p>
+           <p>Colores: {detallePrenda.colores.color1}, {detallePrenda.colores.color2}</p>
+           <p>Talles: {detallePrenda.talles.T1}-{detallePrenda.talles.T2}-{detallePrenda.talles.T3}</p>
        </div>
-       <ItemCount stock={productoDetalle.stock}/>
+       <ItemCount stock={detallePrenda.stock}/>
 
-   </Card>
-</div>
+   </div>
+</section>
        )
    }
 </>
