@@ -21,10 +21,10 @@ export const NavBar = () =>{
         <ReactBoostrap.Navbar.Collapse id="responsive-navbar-nav">
           <ReactBoostrap.Nav className="mr-auto">
             <Link to={`/`} className="categorias" >Productos</Link>
-            <Link to={`/category/${remeras}`} className="categorias" >Remeras</Link>
-            <Link to={`/category/${faldas}`} className="categorias" > Faldas </Link>
-            <Link to={`/category/${pantalones}`} className="categorias" > Pantalones</Link>
-            <Link to={`/category/${abrigos}`} className="categorias" > Abrigos </Link>
+            <Link to={`/categoria/${remeras}`} className="categorias" >Remeras</Link>
+            <Link to={`/categoria/${faldas}`} className="categorias" > Faldas </Link>
+            <Link to={`/categoria/${pantalones}`} className="categorias" > Pantalones</Link>
+            <Link to={`/categoria/${abrigos}`} className="categorias" > Abrigos </Link>
 
           </ReactBoostrap.Nav>
           <ReactBoostrap.Nav>
