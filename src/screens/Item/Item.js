@@ -2,6 +2,7 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import { ItemCount } from '../../components/counter/itemCount';
 import './Item.css';
+import { Link } from 'react-router-dom';
 
 const ItemStyle = {
     backgroundColor: 'Beige',
@@ -12,24 +13,26 @@ const ItemStyle = {
     margin:'3%',
     textAlign: 'center',
     width: '16rem',
-    height:'100%'
-
-
+    height:'100%',
 };
 
-
-
+const linkStyle= {
+    textDecoration: 'none',
+}
 export const Item = props => {
-    const {element} = props;
+    const {prenda} = props;
     
-    return <div>
-        <Card style={ItemStyle}>
-            <h5>{element.title}</h5>
-            <img src= {element.picture.img}  alt= {element.picture.alt}></img>
-            <Card.Text> ${element.price}</Card.Text>
-            <ItemCount stock={element.stock}/>
+    return <>
+        <Link to={`/detalle/${prenda.id}`} style={linkStyle}>
+            <Card style={ItemStyle}>
+                    <h5>{prenda.title}</h5>
+                    <img src= {prenda.picture.img}  alt= {prenda.picture.alt}></img>
+                    <Card.Text> ${prenda.price}</Card.Text>
+                
+                <ItemCount stock={prenda.stock}/>
 
-        </Card>
-    </div>
+            </Card>
+        </Link>
+        </>
 }
 

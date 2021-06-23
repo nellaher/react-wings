@@ -42,7 +42,7 @@ export const ItemCount = () => {
                 <Col><Button style={buttonStyle} onClick={e => quitarProducto()} disabled = {count === valorInicial ? true : false}> - </Button></Col>
             </Row>
                 <br></br>
-            <Button style={buttonStyle} onClick={e => addToCart()}><ShoppingBasketIcon/> Agregar al carrito</Button>
+            <Button style={buttonStyle} onClick={e => addToCart()} disabled = {count === valorInicial ? true : false}><ShoppingBasketIcon/> Agregar al carrito</Button>
         </Container>
             
         
