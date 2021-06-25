@@ -15,11 +15,10 @@ const buttonStyle ={
 
 
 
-export const ItemCount = () => {
-
-    const valorInicial = 0;
-    const stock = 10;
-    const [count, setCount] = useState(valorInicial);
+export const ItemCount = props => {
+    const {valorInicial, stock, stockProducto, addToCart} = props;
+    
+    const [count, setCount] = useState(valorInicial > stockProducto ? valorInicial : stockProducto) ;
     
     const sumarProducto = () => {
         setCount(count+1);
@@ -27,10 +26,7 @@ export const ItemCount = () => {
     const quitarProducto = () => {
         setCount(count-1);
     }
-    const addToCart = ()=> {
-        console.log(`Agregaste ${count} productos a tu carrito!`)
-        
-    }
+   
 
    
     return <div>
@@ -42,7 +38,7 @@ export const ItemCount = () => {
                 <Col><Button style={buttonStyle} onClick={e => quitarProducto()} disabled = {count === valorInicial ? true : false}> - </Button></Col>
             </Row>
                 <br></br>
-            <Button style={buttonStyle} onClick={e => addToCart()} disabled = {count === valorInicial ? true : false}><ShoppingBasketIcon/> Agregar al carrito</Button>
+            <Button style={buttonStyle} onClick={e => addToCart(count)} disabled = {count === valorInicial ? true : false}><ShoppingBasketIcon/> Agregar al carrito</Button>
         </Container>
             
         

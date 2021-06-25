@@ -1,6 +1,5 @@
 import React from 'react';
 import Card from 'react-bootstrap/Card';
-import { ItemCount } from '../../components/counter/itemCount';
 import './Item.css';
 import { Link } from 'react-router-dom';
 
@@ -29,7 +28,7 @@ export const Item = props => {
                     <img src= {prenda.picture.img}  alt= {prenda.picture.alt}></img>
                     <Card.Text> ${prenda.price}</Card.Text>
                 
-                <ItemCount stock={prenda.stock}/>
+            
 
             </Card>
         </Link>
