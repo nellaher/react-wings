@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import Spinner from 'react-bootstrap/Spinner';
 import { ItemCount } from '../../../components/counter/itemCount';
+import { FinalizarCompra } from '../../../components/FinalizarCompra/FinalizarCompra';
+
+
 
 
 
@@ -12,8 +15,8 @@ const ItemStyle = {
     border: 'white 1px solid',
     boxShadow: 'LightSteelBlue 2px 5px 5px',
     margin:'3%',
-    textAlign: 'center',
-    width: '30rem',
+    
+    width: '90%',
     height:'100%'
 
 
@@ -34,14 +37,30 @@ const styleImg = {
 }
 
 export const ItemDetail = props=> {
+
     const {detallePrenda} = props;
+    const [stockProducto, setStockProducto ] = useState (0);
+    const [click, setClick] = useState(false);
+
+    const addToCart = stock => {
+        setStockProducto(stock);
+        setClick(true);
+
+
+    }
+
+    const cancelar = anular =>{
+        setClick(false);
+    };
+
+
     return <>
     {detallePrenda.length === 0 ? (
        <div className="d-flex justify-content-center" style={styleItemList}><Spinner animation="border" variant="secondary"/></div>
        ) : (
        
-        <section>
-        <div style={ItemStyle}>
+        <section style={ItemStyle}>
+        <div >
        <h5>{detallePrenda.title}</h5>
        <img style={styleImg} src= {detallePrenda.picture.img}  alt= {detallePrenda.picture.alt}></img>
        <Card.Text> ${detallePrenda.price}</Card.Text>
@@ -50,7 +69,10 @@ export const ItemDetail = props=> {
            <p>Colores: {detallePrenda.colores.color1}, {detallePrenda.colores.color2}</p>
            <p>Talles: {detallePrenda.talles.T1}-{detallePrenda.talles.T2}-{detallePrenda.talles.T3}</p>
        </div>
-       <ItemCount stock={detallePrenda.stock}/>
+       <ItemCount stock={detallePrenda.stock} valorInicial={1}/>
+       {
+           click ? <FinalizarCompra cancelar= {cancelar}/> : <ItemCount stock = {detallePrenda.stock} valorInicial={1} stockProducto={stockProducto} addToCart= {addToCart}/>
+       }
 
    </div>
 </section>

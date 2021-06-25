@@ -14,14 +14,14 @@ const promiseWings = () => {
 
 export const ItemDetailContainer = props => {
     const [detallePrenda, setDetallePrenda] = useState([])
-    const {prendaID} = useParams();
+    const {detalleID} = useParams();
 
     useEffect ( ()=> {
         promiseWings()
-        .then(response => {setDetallePrenda(response.filter(prenda => prenda.id === parseInt(prendaID)))
+        .then(response => {setDetallePrenda(response.filter(prenda => prenda.id === parseInt(detalleID)))
         }
         )
-    },[prendaID]);
+    },[detalleID]);
         
 
     return <>
