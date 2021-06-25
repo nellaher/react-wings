@@ -17,7 +17,12 @@ const ItemStyle = {
     margin:'3%',
     
     width: '90%',
-    height:'100%'
+    height:'100%',
+    display: 'flex',
+    flexDirection: 'row',
+    textAlign: 'center',
+    justifyContent: 'space-around',
+    margin:'3%'
 
 
 };
@@ -69,7 +74,7 @@ export const ItemDetail = props=> {
            <p>Colores: {detallePrenda.colores.color1}, {detallePrenda.colores.color2}</p>
            <p>Talles: {detallePrenda.talles.T1}-{detallePrenda.talles.T2}-{detallePrenda.talles.T3}</p>
        </div>
-       <ItemCount stock={detallePrenda.stock} valorInicial={1}/>
+       
        {
            click ? <FinalizarCompra cancelar= {cancelar}/> : <ItemCount stock = {detallePrenda.stock} valorInicial={1} stockProducto={stockProducto} addToCart= {addToCart}/>
        }

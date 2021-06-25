@@ -6,10 +6,12 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 
-const buttonStyle ={
+ export const buttonStyle ={
     verticalAlign: 'middle',
     backgroundColor:'rgb(255, 152, 138)',
     border: 'solid 1px rgb(238, 119, 139)',
+    borderRadius: '5px 5px 5px 5px',
+
     
 }
 
@@ -17,7 +19,7 @@ const buttonStyle ={
 
 export const ItemCount = props => {
     const {valorInicial, stock, stockProducto, addToCart} = props;
-    
+
     const [count, setCount] = useState(valorInicial > stockProducto ? valorInicial : stockProducto) ;
     
     const sumarProducto = () => {
@@ -38,7 +40,7 @@ export const ItemCount = props => {
                 <Col><Button style={buttonStyle} onClick={e => quitarProducto()} disabled = {count === valorInicial ? true : false}> - </Button></Col>
             </Row>
                 <br></br>
-            <Button style={buttonStyle} onClick={e => addToCart(count)} disabled = {count === valorInicial ? true : false}><ShoppingBasketIcon/> Agregar al carrito</Button>
+            <Button style={buttonStyle} onClick={() => addToCart(count)} disabled = {count < valorInicial ? true : false}><ShoppingBasketIcon/> Agregar al carrito</Button>
         </Container>
             
         
