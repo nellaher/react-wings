@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import Spinner from 'react-bootstrap/Spinner';
 import { ItemCount } from '../../../components/counter/itemCount';
 import { FinalizarCompra } from '../../../components/FinalizarCompra/FinalizarCompra';
+
+import { CartContext } from '../../../CartContext/CartContext';
 
 
 
@@ -22,7 +24,6 @@ const ItemStyle = {
     flexDirection: 'row',
     textAlign: 'center',
     justifyContent: 'space-around',
-    margin:'3%'
 
 
 };
@@ -46,16 +47,17 @@ export const ItemDetail = props=> {
     const {detallePrenda} = props;
     const [stockProducto, setStockProducto ] = useState (0);
     const [click, setClick] = useState(false);
+    const {añadirPrenda, removerPrenda} = useContext(CartContext);
 
     const addToCart = stock => {
         setStockProducto(stock);
         setClick(true);
-
-
+        añadirPrenda({prenda: detallePrenda, quantity: stock})
     }
 
     const cancelar = anular =>{
         setClick(false);
+        removerPrenda(detallePrenda.id);
     };
 
 
