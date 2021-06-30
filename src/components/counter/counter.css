@@ -10,7 +10,9 @@
     transition-duration: 0.20s;
     border-radius: 5px 5px 5px 5px;
     display: inline-block;
+    text-decoration: none;
 }
+
 .cardButton:active{
     background-color: #000000;
     color: #ffffff;

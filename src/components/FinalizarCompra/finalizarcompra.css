@@ -1,0 +1,14 @@
+.btnFinalizar {
+    text-decoration: none;
+    color: white;
+    padding: 1px;
+    display: inline-block;
+    
+
+
+}
+.btnFinalizar:hover{
+    text-decoration: none;
+    color: white;
+}
+

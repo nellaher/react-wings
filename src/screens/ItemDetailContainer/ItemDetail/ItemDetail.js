@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import Spinner from 'react-bootstrap/Spinner';
 import { ItemCount } from '../../../components/counter/itemCount';
 import { FinalizarCompra } from '../../../components/FinalizarCompra/FinalizarCompra';
+
+import { CartContext } from '../../../CartContext/CartContext';
 
 
 
@@ -17,7 +19,11 @@ const ItemStyle = {
     margin:'3%',
     
     width: '90%',
-    height:'100%'
+    height:'100%',
+    display: 'flex',
+    flexDirection: 'row',
+    textAlign: 'center',
+    justifyContent: 'space-around',
 
 
 };
@@ -41,16 +47,17 @@ export const ItemDetail = props=> {
     const {detallePrenda} = props;
     const [stockProducto, setStockProducto ] = useState (0);
     const [click, setClick] = useState(false);
+    const {añadirPrenda, removerPrenda} = useContext(CartContext);
 
     const addToCart = stock => {
         setStockProducto(stock);
         setClick(true);
-
-
+        añadirPrenda({prenda: detallePrenda, quantity: stock})
     }
 
     const cancelar = anular =>{
         setClick(false);
+        removerPrenda(detallePrenda.id);
     };
 
 
@@ -69,7 +76,7 @@ export const ItemDetail = props=> {
            <p>Colores: {detallePrenda.colores.color1}, {detallePrenda.colores.color2}</p>
            <p>Talles: {detallePrenda.talles.T1}-{detallePrenda.talles.T2}-{detallePrenda.talles.T3}</p>
        </div>
-       <ItemCount stock={detallePrenda.stock} valorInicial={1}/>
+       
        {
            click ? <FinalizarCompra cancelar= {cancelar}/> : <ItemCount stock = {detallePrenda.stock} valorInicial={1} stockProducto={stockProducto} addToCart= {addToCart}/>
        }
