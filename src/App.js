@@ -2,12 +2,13 @@ import {NavBar} from './components/NavBar/NavBar';
 import {ItemListContainer} from './screens/ItemListContainer/ItemListContainer'
 import {ItemDetailContainer} from './screens/ItemDetailContainer/ItemDetailContainer';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { Cart } from './screens/cart/Cart'
+import { Cart } from './screens/cart/Cart';
+import {CartComponentContext} from './CartContext/CartContext'
 
 
 function App() {
-  return (
-    <div>
+  return <>
+      <CartComponentContext>
       <BrowserRouter>
       <NavBar/>
         <Switch>
@@ -25,12 +26,9 @@ function App() {
             </Route>
             
         </Switch>
-
-      </BrowserRouter>
-    </div>
-      
-    
-  );
+        </BrowserRouter>
+        </CartComponentContext>
+    </>
 }
 
 export default App;

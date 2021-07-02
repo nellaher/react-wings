@@ -52,7 +52,7 @@ export const ItemDetail = props=> {
     const addToCart = stock => {
         setStockProducto(stock);
         setClick(true);
-        añadirPrenda({prenda: detallePrenda, quantity: stock})
+        añadirPrenda({prenda: detallePrenda, cantidad: stock})
     }
 
     const cancelar = anular =>{
