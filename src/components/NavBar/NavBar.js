@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import * as ReactBoostrap from 'react-bootstrap';
 import CartWidget from './cartWidget/cartWidget';
 import './NavBar.css';
 import { Link } from 'react-router-dom';
+import { CartContext } from '../../CartContext/CartContext';
 
 
 
@@ -30,6 +31,7 @@ export const NavBar = () =>{
           <ReactBoostrap.Nav>
               <ReactBoostrap.Nav.Link href="#deets">
                 <CartWidget/>
+                {itemsCart.length > 0 ? <CartWidget/> : ''}
               </ReactBoostrap.Nav.Link>
           </ReactBoostrap.Nav>
       </ReactBoostrap.Navbar.Collapse>

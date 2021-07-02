@@ -6,19 +6,25 @@ export const CartContext = createContext();
 export const CartComponentContext = props => {
     
     const [itemsCart, setItemsCart] = useState([]);
+    const [total, setTotal] = useState(0);
+    const [cantidadPrenda, setCantidadPrenda] = useState(0)
+
 
     const IsInCart = idPrenda => {
         itemsCart.find(itemCart => itemCart.prenda.id === idPrenda)
     }
     
     const añadirPrenda = prendaAgregada => {
+        setTotal(total + (prendaAgregada.prenda.precio * prendaAgregada.cantidad ))
+        setCantidadPrenda(cantidadPrenda + prendaAgregada.cantidad)
+
         if (IsInCart (prendaAgregada.prenda.id)){
             const actualizarItem = itemsCart.map((itemCart) => {
-                const cantidadTotal = itemCart.quantity + prendaAgregada.quantity;
+                const cantidadTotal = itemCart.cantidad + prendaAgregada.cantidad;
                 if (itemCart.prenda.id === prendaAgregada.prenda.id){
-                    return {...itemCart, quantity: cantidadTotal}
+                    return {...itemCart, cantidad: cantidadTotal}
                 }
-                return itemCart
+                return {itemCart}
             })  
                 setItemsCart(actualizarItem)
         } else {
@@ -28,11 +34,16 @@ export const CartComponentContext = props => {
     }
 
     const removerPrenda = id => {
+        const prendaRemovida = itemsCart.find(itemCart => itemCart.prenda.id === id);
+        setTotal (total - (prendaRemovida.prenda.precio * prendaRemovida.cantidad))
+        setCantidadPrenda (cantidadPrenda - prendaRemovida.cantidad)
         setItemsCart (itemsCart.filter((prenda)=> prenda.prenda.id !== id));
     }
 
     const quitarTodo = () => {
         setItemsCart([])
+        setCantidadPrenda(0)
+        setTotal(0)
     }
 
 
@@ -40,7 +51,7 @@ export const CartComponentContext = props => {
         
     }, [itemsCart])
 
-    return <CartContext.Provider value={{itemsCart, añadirPrenda, removerPrenda, quitarTodo}}>
+    return <CartContext.Provider value={{itemsCart, añadirPrenda, removerPrenda, quitarTodo, total, cantidadPrenda}}>
         {props.children}
     </CartContext.Provider>
     

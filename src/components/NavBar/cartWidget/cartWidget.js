@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import Badge from '@material-ui/core/Badge';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import './cartWidget.css'
+import { CartContext } from '../../../CartContext/CartContext';
 
 
 const styleCart = {
@@ -11,7 +12,7 @@ const styleCart = {
 const CartWidget = () =>{
         return <div>
             <button className= "botonCarrito" style = {styleCart}>
-                <Badge badgeContent={3} color="secondary" />
+                <Badge badgeContent={cantidadPrenda} color="secondary" />
                 <ShoppingCartIcon />
             </button>
     </div>
