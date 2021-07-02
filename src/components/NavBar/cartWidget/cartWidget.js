@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, { useContext } from 'react';
 import Badge from '@material-ui/core/Badge';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import './cartWidget.css'
@@ -9,7 +9,8 @@ const styleCart = {
     backgroundColor: "#00000000",
     border: "none",
 }
-const CartWidget = () =>{
+export const CartWidget = props =>{
+        const {cantidadPrenda} = useContext(CartContext)
         return <div>
             <button className= "botonCarrito" style = {styleCart}>
                 <Badge badgeContent={cantidadPrenda} color="secondary" />

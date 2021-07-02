@@ -1,14 +1,14 @@
-import React, {useContext} from 'react';
+import React, { useContext }  from 'react';
 import * as ReactBoostrap from 'react-bootstrap';
-import CartWidget from './cartWidget/cartWidget';
 import './NavBar.css';
 import { Link } from 'react-router-dom';
+import {CartWidget} from './cartWidget/cartWidget'
 import { CartContext } from '../../CartContext/CartContext';
 
 
 
-export const NavBar = () =>{
-
+export const NavBar = props =>{
+  const {itemsCart} = useContext(CartContext)
   const remeras = "remeras";
   const faldas = "faldas";
   const pantalones = "pantalones";
@@ -30,7 +30,6 @@ export const NavBar = () =>{
           </ReactBoostrap.Nav>
           <ReactBoostrap.Nav>
               <ReactBoostrap.Nav.Link href="#deets">
-                <CartWidget/>
                 {itemsCart.length > 0 ? <CartWidget/> : ''}
               </ReactBoostrap.Nav.Link>
           </ReactBoostrap.Nav>
