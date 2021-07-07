@@ -6,7 +6,7 @@ export const CartContext = createContext();
 export const CartComponentContext = props => {
     
     const [itemsCart, setItemsCart] = useState([]);
-    const [total, setTotal] = useState(0);
+    const [precioTotal, setPrecioTotal] = useState(0);
     const [cantidadPrenda, setCantidadPrenda] = useState(0)
 
 
@@ -15,7 +15,7 @@ export const CartComponentContext = props => {
     }
     
     const añadirPrenda = prendaAgregada => {
-        setTotal(total + (prendaAgregada.prenda.precio * prendaAgregada.cantidad ))
+        setPrecioTotal(precioTotal + (prendaAgregada.prenda.precio * prendaAgregada.cantidad ))
         setCantidadPrenda(cantidadPrenda + prendaAgregada.cantidad)
 
         if (IsInCart (prendaAgregada.prenda.id)){
@@ -35,7 +35,7 @@ export const CartComponentContext = props => {
 
     const removerPrenda = id => {
         const prendaRemovida = itemsCart.find(itemCart => itemCart.prenda.id === id);
-        setTotal (total - (prendaRemovida.prenda.precio * prendaRemovida.cantidad))
+        setPrecioTotal (precioTotal - (prendaRemovida.prenda.precio * prendaRemovida.cantidad))
         setCantidadPrenda (cantidadPrenda - prendaRemovida.cantidad)
         setItemsCart (itemsCart.filter((prenda)=> prenda.prenda.id !== id));
     }
@@ -43,7 +43,7 @@ export const CartComponentContext = props => {
     const quitarTodo = () => {
         setItemsCart([])
         setCantidadPrenda(0)
-        setTotal(0)
+        setPrecioTotal(0)
     }
 
 
@@ -51,7 +51,7 @@ export const CartComponentContext = props => {
         
     }, [itemsCart])
 
-    return <CartContext.Provider value={{itemsCart, añadirPrenda, removerPrenda, quitarTodo, total, cantidadPrenda}}>
+    return <CartContext.Provider value={{itemsCart, añadirPrenda, removerPrenda, quitarTodo, precioTotal, cantidadPrenda}}>
         {props.children}
     </CartContext.Provider>
     

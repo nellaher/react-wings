@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link, useHistory} from 'react-router-dom';
-import { buttonStyle } from '../counter/itemCount';
+import { buttonStyle } from '../../../components/counter/itemCount';
 
 export const EmptyCart = () => {
     const history = useHistory();
