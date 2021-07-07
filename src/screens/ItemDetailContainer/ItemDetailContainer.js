@@ -3,6 +3,7 @@ import React, {useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
 import { ItemDetail } from './ItemDetail/ItemDetail';
 import { productosWings } from '../../Services/Productos/misProductos';
+import { dataBase } from '../../firebase/firebase';
 
 
 const promiseWings = () => {
